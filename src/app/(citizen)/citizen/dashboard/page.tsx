@@ -36,7 +36,7 @@ export default function CitizenDashboard() {
       });
       const data = await res.json();
       if (data.success) {
-        setIssues((prev) => prev.map((i) => i._id === ratingIssueId ? data.data : i));
+        setIssues((prev) => prev.map((i) => String(i._id) === ratingIssueId ? data.data : i));
         setRatingIssueId(null);
         setRating(5);
         setFeedbackText("");
