@@ -9,6 +9,8 @@ import { Badge } from "@/components/ui/badge";
 import { Clock, Map, Trophy, LogOut, Plus, MapPin, BrainCircuit, CheckCircle, Navigation } from "lucide-react";
 import Link from "next/link";
 
+const LIBRARIES: ("places")[] = ["places"];
+
 interface MapIssue {
   _id: string;
   title: string;
@@ -46,6 +48,7 @@ export default function MapExplorerPage() {
 
   const { isLoaded, loadError } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
+    libraries: LIBRARIES,
   });
 
   useEffect(() => {
