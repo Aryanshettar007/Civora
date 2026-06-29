@@ -181,7 +181,7 @@ export default function CitizenDashboard() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {issues.map((issue) => (
-              <Card key={issue._id as string} className="overflow-hidden border-border/50 bg-card/40 backdrop-blur-sm shadow-xl flex flex-col transition-all hover:border-primary/30">
+              <Card key={String(issue._id)} className="overflow-hidden border-border/50 bg-card/40 backdrop-blur-sm shadow-xl flex flex-col transition-all hover:border-primary/30">
                 <div className="h-48 w-full bg-surface relative">
                   <img src={issue.imageUrl} alt={issue.title} className="w-full h-full object-cover" />
                   <div className="absolute top-3 right-3">
@@ -278,7 +278,7 @@ export default function CitizenDashboard() {
                   {/* Rate & Close action (if Resolved and reported by current user) */}
                   {issue.status === "Resolved" && issue.reportedBy && (issue.reportedBy as any)._id === user?._id && (
                     <Button
-                      onClick={() => setRatingIssueId(issue._id as string)}
+                      onClick={() => setRatingIssueId(String(issue._id))}
                       className="w-full mb-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg py-2.5 text-xs font-semibold shadow-lg shadow-emerald-900/10"
                     >
                       Rate Resolution & Close
