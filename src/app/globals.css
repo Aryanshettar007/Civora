@@ -1,0 +1,218 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* =============================
+       CIVORA DESIGN SYSTEM
+       Premium Dark Theme
+       ============================= */
+
+    /* Background */
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+
+    /* Surfaces */
+    --surface: 222 30% 10%;
+    --surface-hover: 222 28% 13%;
+
+    /* Borders */
+    --border: 222 20% 18%;
+    --input: 222 20% 18%;
+
+    /* Muted */
+    --muted: 222 20% 16%;
+    --muted-foreground: 215 20% 55%;
+
+    /* Primary — Vibrant Blue */
+    --primary: 200 100% 50%;
+    --primary-foreground: 222 47% 6%;
+
+    /* Secondary */
+    --secondary: 222 25% 14%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Accent — Indigo */
+    --accent: 240 100% 65%;
+    --accent-foreground: 210 40% 98%;
+
+    /* Severity Colors */
+    --severity-low: 142 76% 45%;
+    --severity-medium: 38 92% 55%;
+    --severity-high: 25 95% 55%;
+    --severity-critical: 0 84% 60%;
+
+    /* Status Colors */
+    --success: 142 76% 45%;
+    --warning: 38 92% 55%;
+    --danger: 0 84% 60%;
+    --info: 200 100% 50%;
+
+    /* shadcn tokens */
+    --card: 222 30% 10%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 35% 8%;
+    --popover-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 200 100% 50%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted));
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}
+
+@layer components {
+
+  /* Glassmorphism */
+  .glass {
+    background: hsla(var(--surface), 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsla(var(--border), 0.5);
+  }
+
+  .glass-strong {
+    background: hsla(var(--surface), 0.8);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid hsla(var(--border), 0.6);
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    background: linear-gradient(135deg,
+        hsl(var(--primary)) 0%,
+        hsl(var(--accent)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: 0 0 20px -5px hsla(var(--primary), 0.3),
+      0 0 60px -15px hsla(var(--primary), 0.15);
+  }
+
+  .glow-danger {
+    box-shadow: 0 0 20px -5px hsla(var(--danger), 0.3),
+      0 0 60px -15px hsla(var(--danger), 0.15);
+  }
+
+  .glow-success {
+    box-shadow: 0 0 20px -5px hsla(var(--success), 0.3),
+      0 0 60px -15px hsla(var(--success), 0.15);
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px -12px hsla(var(--primary), 0.15);
+    border-color: hsla(var(--primary), 0.3);
+  }
+
+  /* Dot grid background pattern */
+  .bg-dot-pattern {
+    background-image: radial-gradient(hsla(var(--muted-foreground), 0.15) 1px,
+        transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Animated gradient border */
+  .border-gradient {
+    position: relative;
+    border: none;
+  }
+
+  .border-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg,
+        hsl(var(--primary)),
+        hsl(var(--accent)));
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+}
+
+@layer utilities {
+
+  /* Staggered animation delays */
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .delay-600 {
+    animation-delay: 600ms;
+  }
+
+  .delay-700 {
+    animation-delay: 700ms;
+  }
+
+  .delay-800 {
+    animation-delay: 800ms;
+  }
+}

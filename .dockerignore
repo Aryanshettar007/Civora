@@ -1,0 +1,14 @@
+node_modules
+.next
+.git
+.gitignore
+Dockerfile
+.dockerignore
+README.md
+*.pdf
+cora_architecture.md
+vibe2ship_submission_document.md
+civora_detailed_project_report.md
+walkthrough.md
+task.md
+implementation_plan.md
