@@ -49,8 +49,8 @@ export async function POST(request: Request) {
         displayName: name || email.split("@")[0],
         photoURL: picture || "",
         role: role,
-        department: role === "authority" ? "Public Works" : null,
-        jurisdiction: role === "authority" ? "Ward 42" : null,
+        department: role === "authority" ? "Public Works" : undefined,
+        jurisdiction: role === "authority" ? "Ward 42" : undefined,
       });
       
       console.log(`✨ Created new user: ${email} with role: ${role}`);
@@ -62,8 +62,8 @@ export async function POST(request: Request) {
           user.department = user.department || "Public Works";
           user.jurisdiction = user.jurisdiction || "Ward 42";
         } else {
-          user.department = null;
-          user.jurisdiction = null;
+          user.department = undefined;
+          user.jurisdiction = undefined;
         }
         await user.save();
         console.log(`🔄 Switched user ${email} role to: ${targetRole}`);

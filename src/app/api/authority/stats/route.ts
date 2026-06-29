@@ -31,7 +31,7 @@ export async function GET() {
         departmentStats[department] = { Pending: 0, "In Progress": 0, Resolved: 0, Total: 0 };
       }
       if (status === "Pending" || status === "In Progress" || status === "Resolved") {
-        departmentStats[department][status] = item.count;
+        departmentStats[department][status as "Pending" | "In Progress" | "Resolved"] = item.count;
       }
       departmentStats[department].Total += item.count;
     });
